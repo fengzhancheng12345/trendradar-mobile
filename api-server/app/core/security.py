@@ -1,6 +1,6 @@
 """安全模块 - JWT 和密码处理"""
 from datetime import datetime, timedelta
-from typing import Any
+from typing import Any, Dict, Optional, Union
 import bcrypt
 import jwt
 
@@ -25,7 +25,7 @@ def get_password_hash(password: str) -> str:
     return hashed.decode('utf-8')
 
 
-def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
+def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
     """创建访问令牌"""
     to_encode = data.copy()
     
@@ -43,7 +43,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None) -> s
     return encoded_jwt
 
 
-def decode_token(token: str) -> dict[str, Any]:
+def decode_token(token: str) -> Dict[str, Any]:
     """解码令牌"""
     payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
     # 确保 sub 是整数
