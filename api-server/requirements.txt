@@ -1,0 +1,40 @@
+# TrendRadar Mobile API Server
+# API 服务依赖
+
+# Web 框架
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# 数据验证
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# 认证
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# 数据库
+sqlalchemy==2.0.25
+alembic==1.13.1
+
+# 缓存
+redis==5.0.1
+
+# HTTP 客户端
+httpx==0.26.0
+
+# 工具
+python-dotenv==1.0.0
+aiofiles==23.2.1
+cryptography==42.0.0
+
+# ===========================================
+# 支付 SDK (根据需要安装)
+# ===========================================
+
+# 微信支付 Python SDK (可选，手动签名不需要)
+# wechatpay-python-v3==1.0.0
+
+# 支付宝 Python SDK
+alipay-sdk-python==3.3.202
