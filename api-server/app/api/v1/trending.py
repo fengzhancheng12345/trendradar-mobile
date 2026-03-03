@@ -18,10 +18,10 @@ class TrendingItem(BaseModel):
     """热点条目"""
     rank: int
     title: str
-    url: str | None = None
-    hot_value: str | None = None
+    url: Optional[str] = None
+    hot_value: Optional[str] = None
     platform: str
-    time: str | None = None
+    time: Optional[str] = None
 
 
 class PlatformData(BaseModel):

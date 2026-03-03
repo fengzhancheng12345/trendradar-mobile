@@ -1,5 +1,6 @@
 """VIP 会员路由 - 支付宝当面付"""
 from datetime import datetime, timedelta
+from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
@@ -16,7 +17,7 @@ router = APIRouter()
 class VIPStatusResponse(BaseModel):
     """VIP状态响应"""
     is_vip: bool
-    vip_expire_date: str | None
+    vip_expire_date: Optional[str]
     keywords_count: int
     features: dict
 
@@ -31,8 +32,8 @@ class CreateOrderResponse(BaseModel):
     order_no: str
     amount: float
     pay_type: str
-    qr_code: str | None = None
-    qr_code_image: str | None = None
+    qr_code: Optional[str] = None
+    qr_code_image: Optional[str] = None
 
 
 class VIPProduct(BaseModel):

@@ -1,5 +1,6 @@
 """认证路由"""
 from datetime import datetime, timedelta
+from typing import Optional, Union
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
@@ -19,15 +20,15 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/v1/auth/login")
 class UserCreate(BaseModel):
     username: str
     password: str
-    email: EmailStr | None = None
-    phone: str | None = None
+    email: Optional[EmailStr] = None
+    phone: Optional[str] = None
 
 
 class UserResponse(BaseModel):
     id: int
     username: str
-    email: str | None
-    phone: str | None
+    email: Optional[str]
+    phone: Optional[str]
     is_vip: bool
     keywords_count: int
     created_at: datetime
